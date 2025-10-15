@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cljph3q2f157g"]
+
+[sub_resource type="Gradient" id="Gradient_kaobu"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w2cus"]
+gradient = SubResource("Gradient_kaobu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wag6e"]
+size = Vector2(250, 12)
+
+[node name="piso" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 7.75)
+scale = Vector2(1, 16.5)
+texture = SubResource("GradientTexture1D_w2cus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_wag6e")
+debug_color = Color(0.35770613, 0.5220707, 0.87749314, 0.41960785)
