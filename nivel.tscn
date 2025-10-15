@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv7r8gunl7fpq"]
+
+[ext_resource type="PackedScene" uid="uid://vrfl7y6nl4m0" path="res://jugador.tscn" id="1_h06de"]
+[ext_resource type="PackedScene" uid="uid://cljph3q2f157g" path="res://props/piso.tscn" id="2_7gdj4"]
+
+[node name="nivel" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_h06de")]
+scale = Vector2(0.7, 0.7)
+
+[node name="piso" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(7, 92)
