@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://4nvrxarrqhql"]
+
+[ext_resource type="Script" uid="uid://cjxwwtdct56yw" path="res://props/moneda.gd" id="1_13ops"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_108mt"]
+size = Vector2(41, 37)
+
+[sub_resource type="Gradient" id="Gradient_13ops"]
+offsets = PackedFloat32Array(0, 0.6111111, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.80518156, 0.55320597, 0.18711084, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rqcd5"]
+gradient = SubResource("Gradient_13ops")
+
+[node name="Moneda" type="Area2D"]
+script = ExtResource("1_13ops")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 8.5)
+shape = SubResource("RectangleShape2D_108mt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, 9)
+scale = Vector2(0.1484375, 36)
+texture = SubResource("GradientTexture1D_rqcd5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
