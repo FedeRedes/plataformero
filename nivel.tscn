@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv7r8gunl7fpq"]
+[gd_scene load_steps=5 format=3 uid="uid://cv7r8gunl7fpq"]
 
 [ext_resource type="PackedScene" uid="uid://vrfl7y6nl4m0" path="res://jugador.tscn" id="1_h06de"]
+[ext_resource type="Script" uid="uid://cmistngr4tlv6" path="res://nivel.gd" id="1_j87l1"]
 [ext_resource type="PackedScene" uid="uid://cljph3q2f157g" path="res://props/piso.tscn" id="2_7gdj4"]
+[ext_resource type="PackedScene" uid="uid://4nvrxarrqhql" path="res://props/moneda.tscn" id="3_7gdj4"]
 
 [node name="nivel" type="Node2D"]
+script = ExtResource("1_j87l1")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_h06de")]
 scale = Vector2(0.7, 0.7)
 
 [node name="piso" parent="." instance=ExtResource("2_7gdj4")]
 position = Vector2(7, 92)
+
+[node name="piso2" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(327, 26)
+
+[node name="Moneda" parent="." instance=ExtResource("3_7gdj4")]
+position = Vector2(313, -60)
+
+[node name="Moneda2" parent="." instance=ExtResource("3_7gdj4")]
+position = Vector2(110, 43)
+
+[connection signal="body_entered" from="Moneda" to="." method="_on_moneda_body_entered"]
+[connection signal="body_entered" from="Moneda2" to="." method="_on_moneda_body_entered"]
