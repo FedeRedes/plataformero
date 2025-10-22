@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk2i2ydhl3eg3"]
+
+[ext_resource type="Script" uid="uid://dgwoa8uobhghg" path="res://props/powerup/salto.gd" id="1_46usa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqxbu"]
+size = Vector2(40, 37)
+
+[sub_resource type="Gradient" id="Gradient_46usa"]
+offsets = PackedFloat32Array(0, 0.7839506, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.14604479, 0.9127172, 0.71825254, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tfyxm"]
+gradient = SubResource("Gradient_46usa")
+
+[node name="Salto" type="Area2D"]
+script = ExtResource("1_46usa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 8.5)
+shape = SubResource("RectangleShape2D_fqxbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 9)
+scale = Vector2(0.15625, 38)
+texture = SubResource("GradientTexture1D_tfyxm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
